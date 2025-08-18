@@ -1,0 +1,56 @@
+.bg {
+	height: 100vh;
+	background-image: url('/img/bg.png');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.greetings {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	align-items: center;
+	justify-content: center;
+	padding-inline: 45px;
+	text-align: center;
+	background-color: var(--bg-01);
+}
+
+.greetings h1 {
+	font-size: 32px;
+	font-weight: 600;
+	line-height: 150%;
+	letter-spacing: 0.5%;
+	color: #fff;
+}
+
+.greetings p {
+	font-size: 14px;
+	line-height: 150%;
+	letter-spacing: 1%;
+	color: var(--color-06);
+}
+
+.greetings::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100px;
+	pointer-events: none;
+	transform: translate(0, -100%);
+	background: linear-gradient(180deg, rgba(5, 5, 5, 0), rgba(5, 5, 5, 1));
+}
+
+.btn {
+	width: 100%;
+	padding: 16px;
+	margin: 24px 0 50px 0;
+	color: #fff;
+	font-weight: 600;
+	border-radius: 16px;
+	background: var(--color-01);
+}
