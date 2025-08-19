@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "Caffe Mocha",
+    "description": "Deep Foam",
+    "type": "Machiato",
+    "price": 4.53,
+    "image": "./img/coffee_02.png"
+  },
+  {
+    "id": 2,
+    "name": "Flat White",
+    "description": "Espresso",
+    "type": "Americano",
+    "price": 3.53,
+    "image": "./img/coffee_03.png"
+  },
+  {
+    "id": 3,
+    "name": "Latte",
+    "description": "Latte",
+    "type": "Latte",
+    "price": 3.87,
+    "image": "./img/coffee_04.png"
+  },
+  {
+    "id": 4,
+    "name": "Choco late",
+    "description": "Latte",
+    "type": "Latte",
+    "price": 4.20,
+    "image": "./img/coffee_05.png"
+  }
+]

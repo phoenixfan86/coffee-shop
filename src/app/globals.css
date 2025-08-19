@@ -1,11 +1,13 @@
 :root {
-  --bg-01: #050505;
+	--bg-01: #050505;
 	--color-01: #c67c4e;
 	--color-02: #edd6c8;
 	--color-03: #313131;
 	--color-04: #e3e3e3;
 	--color-05: #f9f2ed;
 	--color-06: #a2a2a2;
+	--color-07: #d8d8d8;
+	--color-08: #2a2a2a;
 	--background: #ffffff;
 	--foreground: #171717;
 }
@@ -19,7 +21,7 @@
 
 html,
 body {
-	max-width: 100vw;
+	max-width: 425px;
 	overflow-x: hidden;
 	font-family: var(--font-sora-sans), Arial, Helvetica, sans-serif;
 }
@@ -33,6 +35,134 @@ body {
 	margin: 0;
 	text-decoration: none;
 	list-style: none;
+}
+
+.content {
+	display: flex;
+	gap: 16px;
+	flex-direction: column;
+	margin-top: 95px;
+	padding-inline: 24px;
+}
+
+.filter {
+	display: flex;
+	gap: 16px;
+}
+
+.filter_item {
+	font-size: 14px;
+	line-height: 150%;
+	color: var(--color-03);
+	padding: 4px 8px;
+	border-radius: 6px;
+	transition: all 0.5s ease;
+}
+
+.filter_item:hover {
+	color: #fff;
+	font-weight: 600;
+	background: var(--color-01);
+}
+
+.filter_item.active {
+	color: #fff;
+	font-weight: 600;
+	background: var(--color-01);
+}
+
+.coffee_list {
+	display: flex;
+	row-gap: 24px;
+	column-gap: 8px;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.coffee_item {
+	display: flex;
+	gap: 8px;
+	flex-direction: column;
+	padding: 8px;
+	border-radius: 12px;
+	transition: all 0.5s ease-in;
+}
+
+.coffee_item:hover {
+	box-shadow: 1px 1px 30px var(--color-02);
+}
+
+.item_img {
+	display: flex;
+	border-radius: 12px;
+	overflow: hidden;
+}
+
+.item_img img {
+	width: 160px;
+}
+
+.item_info {
+	display: flex;
+	gap: 4px;
+	flex-direction: column;
+}
+
+.item_info h3 {
+	font-weight: 600;
+	color: var(--color-03);
+}
+
+.item_info p {
+	font-size: 12px;
+	color: var(--color-06);
+}
+
+.item_buy {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.item_price {
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.item_price:hover {
+	color: #0c0c0c;
+}
+
+.item_price::before {
+	content: '$';
+	margin-right: 4px;
+}
+
+.buy_btn {
+	width: 36px;
+	height: 36px;
+	text-align: center;
+	padding: 6px;
+	border-radius: 8px;
+	font-size: 20px;
+	font-weight: 500;
+	color: #fff;
+	background: var(--color-01);
+	transition: all 0.5s ease;
+}
+
+.buy_btn:hover {
+	transform: scale(0.94);
+}
+
+.buy_btn span {
+	display: inline-block;
+	transition: transform 0.5s ease;
+}
+
+.buy_btn:hover span {
+	transform: rotate(180deg);
 }
 
 @media (prefers-color-scheme: dark) {
