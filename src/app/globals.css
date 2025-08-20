@@ -47,7 +47,7 @@ body {
 
 .filter {
 	display: flex;
-	gap: 16px;
+	gap: 10px;
 }
 
 .filter_item {
@@ -100,7 +100,7 @@ body {
 }
 
 .item_img img {
-	width: 160px;
+	width: 150px;
 }
 
 .item_info {
