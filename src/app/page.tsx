@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import GetStart from '@/component/GetStart';
 import Header from '@/component/Header';
+import FooterMenu from '@/component/FooterMenu';
 
 type Coffee = {
   id: number;
@@ -70,7 +71,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-
+          <FooterMenu />
         </main>
       )}
     </>
