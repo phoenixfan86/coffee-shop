@@ -54,7 +54,18 @@ export default function BuyModal({ coffee, onClose }: BuyModalProps) {
             </div>
             <div className={styles.line}></div>
           </div>
-          <p>{coffee.description}</p>
+          <div className={styles.detail_descr}>
+            <h3>Description</h3>
+            <p>A cappuccino is an approximately 150 ml (5 oz) beverage, with 25 ml of espresso coffee and 85ml of fresh milk the fo.. <span>Read More</span></p>
+          </div>
+          <div className={styles.detail_size}>
+            <h3>Size</h3>
+            <div className={styles.size_items}>
+              <span>S</span>
+              <span>M</span>
+              <span>L</span>
+            </div>
+          </div>
           <p>Ціна: {coffee.price}₴</p>
           <button>Додати у кошик</button>
         </div>
