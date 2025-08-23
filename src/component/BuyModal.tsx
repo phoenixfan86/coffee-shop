@@ -38,9 +38,9 @@ export default function BuyModal({ coffee, onClose }: BuyModalProps) {
           </div>
           <div className={styles.detail_title}>
             <h2>{coffee.name}</h2>
-            <div className={styles.title_detail}>
+            <div className={styles.title_descr}>
               <span>{coffee.type}</span>
-              <div className={styles.title_detail_icons}>
+              <div className={styles.title_descr_icons}>
                 <div className={styles.icon}>
                   <img src="./img/icons/bike.png" alt="Fast delivery" />
                 </div>
@@ -52,10 +52,10 @@ export default function BuyModal({ coffee, onClose }: BuyModalProps) {
                 </div>
               </div>
             </div>
+            <div className={styles.line}></div>
           </div>
           <p>{coffee.description}</p>
           <p>Ціна: {coffee.price}₴</p>
-          <button onClick={onClose}>Закрити</button>
           <button>Додати у кошик</button>
         </div>
       </div>
