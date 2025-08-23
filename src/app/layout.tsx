@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CartProvider } from "@/context/CartContext";
 import { Geist, Geist_Mono, Sora } from "next/font/google";
 import "./globals.css";
 
@@ -30,7 +31,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} ${soraSans.variable}`}>
-        {children}
+        <CartProvider>
+          {children}
+        </CartProvider>
       </body>
     </html>
   );

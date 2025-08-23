@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import GetStart from '@/component/GetStart';
 import Header from '@/component/Header';
 import FooterMenu from '@/component/FooterMenu';
+import BuyModal from '@/component/BuyModal';
 
 type Coffee = {
   id: number;
@@ -18,6 +19,7 @@ export default function Home() {
   const [started, setStarted] = useState(false);
   const [coffees, setCoffees] = useState<Coffee[]>([]);
   const [filter, setFilter] = useState("All Coffee");
+  const [selectedCoffee, setSelectedCoffee] = useState<Coffee | null>(null);
 
   useEffect(() => {
     fetch("/api/coffee")
@@ -63,7 +65,7 @@ export default function Home() {
                   </div>
                   <div className="item_buy">
                     <span className="item_price">{coffee.price}</span>
-                    <div className="buy_btn">
+                    <div className="buy_btn" onClick={() => setSelectedCoffee(coffee)}>
                       <span>+</span>
                     </div>
                   </div>
@@ -72,6 +74,12 @@ export default function Home() {
             </div>
           </div>
           <FooterMenu />
+          {selectedCoffee && (
+            <BuyModal
+              coffee={selectedCoffee}
+              onClose={() => setSelectedCoffee(null)}
+            />
+          )}
         </main>
       )}
     </>

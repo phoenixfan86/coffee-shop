@@ -5,7 +5,7 @@ import FavoriteIcon from "./icons/FavoriteIcon";
 import BagIcon from "./icons/BagIcon";
 import NotifyIcon from "./icons/NotifyIcon";
 
-const FooterMenu = () => {
+export default function FooterMenu() {
   return (
     <nav className={styles.nav}>
       <Link href="/" className={styles.nav_item}>
@@ -23,4 +23,3 @@ const FooterMenu = () => {
     </nav>
   );
 }
-export default FooterMenu;
