@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from 'react';
+
 import styles from './BuyModal.module.css';
 import Arrow_leftIcon from './icons/Arrow_left';
 import FavoriteIcon from './icons/FavoriteIcon';
@@ -20,6 +22,14 @@ type BuyModalProps = {
 };
 
 export default function BuyModal({ coffee, onClose }: BuyModalProps) {
+  const [selectedSize, setSelectedSize] = useState('');
+
+  const getPrice = () => {
+    if (selectedSize === 'M') return (coffee.price + 0.1).toFixed(2);
+    if (selectedSize === 'L') return (coffee.price + 0.3).toFixed(2);
+    return coffee.price.toFixed(2);
+  }
+
   return (
     <div className={styles.modal_wrapper}>
       <div className={styles.detail_modal}>
@@ -61,16 +71,27 @@ export default function BuyModal({ coffee, onClose }: BuyModalProps) {
           <div className={styles.detail_size}>
             <h3>Size</h3>
             <div className={styles.size_items}>
-              <span>S</span>
-              <span>M</span>
-              <span>L</span>
+              <span
+                className={`${styles.size_item} ${selectedSize === "S" ? styles.active : ""}`}
+                onClick={() => setSelectedSize('S')}>S</span>
+              <span
+                className={`${styles.size_item} ${selectedSize === "M" ? styles.active : ""}`}
+                onClick={() => setSelectedSize('M')}>M</span>
+              <span
+                className={`${styles.size_item} ${selectedSize === "L" ? styles.active : ""}`}
+                onClick={() => setSelectedSize('L')}>L</span>
             </div>
           </div>
-          <p>Ціна: {coffee.price}₴</p>
-          <button>Додати у кошик</button>
+          <div className={styles.order_detail}>
+            <div className={styles.order_price}>
+              <span>Price:</span>
+              <span className={styles.price}>${getPrice()}</span>
+            </div>
+            <button >Buy Now</button>
+          </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 

@@ -43,6 +43,7 @@ body {
 	gap: 16px;
 	flex-direction: column;
 	margin-top: 95px;
+	margin-bottom: 70px;
 	padding-inline: 24px;
 }
 
