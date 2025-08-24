@@ -6,7 +6,7 @@ type Props = {
 
 const GetStart = ({ onStart }: Props) => {
   return (
-    <section>
+    <section className={styles.get_start}>
       <div className={styles.bg}></div>
       <div className={styles.greetings}>
         <h1>Fall in Love with Coffee in Blissful Delight!</h1>
