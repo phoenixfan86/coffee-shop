@@ -1,13 +1,19 @@
 .get_start {
 	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	position: relative;
 }
 
 .bg {
-	height: 100%;
-	background-image: url('/img/bg.png');
-	background-position: center;
-	background-size: cover;
-	background-repeat: no-repeat;
+	display: flex;
+	justify-content: center;
+	background: rgba(5, 5, 5, 1);
+	overflow: hidden;
+}
+
+.bg img {
+	width: 75%;
 }
 
 .greetings {
