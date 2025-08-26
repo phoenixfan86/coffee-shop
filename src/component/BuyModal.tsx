@@ -1,28 +1,34 @@
 "use client";
 
-import { useState } from 'react';
-
 import styles from './BuyModal.module.css';
 import Arrow_leftIcon from './icons/Arrow_left';
 import FavoriteIcon from './icons/FavoriteIcon';
 
-
-type Coffee = {
-  id: number;
-  name: string;
-  description: string;
-  type: string;
-  price: number;
-  image: string;
-};
+import { useState } from 'react';
+import { useCart } from '@/context/CartContext';
+import type { Coffee } from '@/types/coffee';
 
 type BuyModalProps = {
   coffee: Coffee;
   onClose: () => void;
+  onBuySuccess: () => void;
 };
 
-export default function BuyModal({ coffee, onClose }: BuyModalProps) {
-  const [selectedSize, setSelectedSize] = useState('');
+export default function BuyModal({ coffee, onClose, onBuySuccess }: BuyModalProps) {
+  const [selectedSize, setSelectedSize] = useState<"S" | "M" | "L" | null>(null);
+
+  const { cart, addToCart } = useCart();
+
+  const handleBuy = () => {
+    if (!selectedSize) return;
+    let finalPrice = coffee.price;
+    if (selectedSize === "M") finalPrice += 0.1;
+    if (selectedSize === "L") finalPrice += 0.3;
+
+    addToCart(coffee, selectedSize, finalPrice, 1);
+    onClose();
+    onBuySuccess();
+  };
 
   const getPrice = () => {
     if (selectedSize === 'M') return (coffee.price + 0.1).toFixed(2);
@@ -32,8 +38,8 @@ export default function BuyModal({ coffee, onClose }: BuyModalProps) {
 
   return (
     <div className={styles.modal_wrapper}>
-      <div className={styles.detail_modal}>
-        <div className={styles.modal_header}>
+      <div className="detail_modal">
+        <div className="modal_header">
           <div onClick={onClose}>
             <Arrow_leftIcon />
           </div>
@@ -62,7 +68,7 @@ export default function BuyModal({ coffee, onClose }: BuyModalProps) {
                 </div>
               </div>
             </div>
-            <div className={styles.line}></div>
+            <div className="line"></div>
           </div>
           <div className={styles.detail_descr}>
             <h3>Description</h3>
@@ -87,7 +93,7 @@ export default function BuyModal({ coffee, onClose }: BuyModalProps) {
               <span>Price:</span>
               <span className={styles.price}>${getPrice()}</span>
             </div>
-            <button >Buy Now</button>
+            <button onClick={handleBuy}>Buy Now</button>
           </div>
         </div>
       </div>

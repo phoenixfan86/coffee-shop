@@ -5,21 +5,15 @@ import GetStart from '@/component/GetStart';
 import Header from '@/component/Header';
 import FooterMenu from '@/component/FooterMenu';
 import BuyModal from '@/component/BuyModal';
-
-type Coffee = {
-  id: number;
-  name: string;
-  description: string;
-  type: string;
-  price: number;
-  image: string;
-};
+import Cart from '@/component/Cart';
+import type { Coffee } from '@/types/coffee';
 
 export default function Home() {
   const [started, setStarted] = useState(false);
   const [coffees, setCoffees] = useState<Coffee[]>([]);
   const [filter, setFilter] = useState("All Coffee");
   const [selectedCoffee, setSelectedCoffee] = useState<Coffee | null>(null);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   useEffect(() => {
     fetch("/api/coffee")
@@ -73,13 +67,18 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <FooterMenu />
+          <FooterMenu onCartClick={() => setIsCartOpen(true)} />
           {selectedCoffee && (
             <BuyModal
               coffee={selectedCoffee}
               onClose={() => setSelectedCoffee(null)}
+              onBuySuccess={() => {
+                setIsCartOpen(true);
+              }}
             />
           )}
+
+          {isCartOpen && <Cart onClose={() => setIsCartOpen(false)} />}
         </main>
       )}
     </>

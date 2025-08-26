@@ -9,11 +9,20 @@ type Coffee = {
   image: string;
 };
 
-type CartItem = Coffee & { quantity: number };
+type CartItem = Coffee & {
+  quantity: number;
+  size: "S" | "M" | "L";
+  finalPrice: number;
+};
 
 type CartContextType = {
   cart: CartItem[];
-  addToCart: (coffee: Coffee, quantity?: number) => void;
+  addToCart: (
+    coffee: Coffee,
+    size: "S" | "M" | "L",
+    finalPrice: number,
+    quantity?: number
+  ) => void;
 };
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -21,17 +30,22 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export function CartProvider({ children }: { children: ReactNode }) {
   const [cart, setCart] = useState<CartItem[]>([]);
 
-  const addToCart = (coffee: Coffee, quantity: number = 1) => {
+  const addToCart = (
+    coffee: Coffee,
+    size: "S" | "M" | "L",
+    finalPrice: number,
+    quantity: number = 1
+  ) => {
     setCart((prev) => {
-      const existing = prev.find((item) => item.id === coffee.id);
+      const existing = prev.find((item) => item.id === coffee.id && item.size === size);
       if (existing) {
         return prev.map((item) =>
-          item.id === coffee.id
+          item.id === coffee.id && item.size === size
             ? { ...item, quantity: item.quantity + quantity }
             : item
         );
       }
-      return [...prev, { ...coffee, quantity }];
+      return [...prev, { ...coffee, size, finalPrice, quantity }];
     });
   };
 

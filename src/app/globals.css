@@ -9,6 +9,8 @@
 	--color-06: #a2a2a2;
 	--color-07: #d8d8d8;
 	--color-08: #2a2a2a;
+	--color-09: #ededed;
+	--color-10: #242424;
 	--background: #ffffff;
 	--foreground: #171717;
 }
@@ -165,6 +167,47 @@ body {
 
 .buy_btn:hover span {
 	transform: rotate(180deg);
+}
+
+.modal_wrapper {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	max-width: 425px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 24px;
+	background: var(--background);
+	overflow-y: auto;
+}
+
+.detail_modal {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	gap: 10px;
+	flex-direction: column;
+}
+
+.modal_header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px;
+}
+
+.modal_header h4 {
+	font-weight: 600;
+}
+
+.line {
+	width: 100%;
+	height: 16px;
+	margin: 0 8px;
+	border-bottom: 1px solid var(--color-04);
 }
 
 @media (prefers-color-scheme: dark) {

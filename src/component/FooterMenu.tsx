@@ -5,7 +5,11 @@ import FavoriteIcon from "./icons/FavoriteIcon";
 import BagIcon from "./icons/BagIcon";
 import NotifyIcon from "./icons/NotifyIcon";
 
-export default function FooterMenu() {
+type FooterMenuProps = {
+  onCartClick: () => void;
+}
+
+export default function FooterMenu({ onCartClick }: FooterMenuProps) {
   return (
     <nav className={styles.nav}>
       <Link href="/" className={styles.nav_item}>
@@ -14,7 +18,7 @@ export default function FooterMenu() {
       <Link href="/" className={styles.nav_item}>
         <FavoriteIcon isActive={false} />
       </Link>
-      <Link href="/" className={styles.nav_item}>
+      <Link href="/" className={styles.nav_item} onClick={onCartClick}>
         <BagIcon isActive={false} />
       </Link>
       <Link href="/" className={styles.nav_item}>
