@@ -37,7 +37,7 @@ export default function BuyModal({ coffee, onClose, onBuySuccess }: BuyModalProp
   }
 
   return (
-    <div className={styles.modal_wrapper}>
+    <div className="modal_wrapper">
       <div className="detail_modal">
         <div className="modal_header">
           <div onClick={onClose}>
