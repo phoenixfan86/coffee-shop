@@ -168,3 +168,51 @@
 	color: var(--color-06);
 	text-decoration: line-through;
 }
+
+.final_order {
+	display: flex;
+	gap: 8px;
+	flex-direction: column;
+	margin-top: 48px;
+}
+
+.method_wrapper {
+	display: flex;
+	gap: 16px;
+	align-items: center;
+}
+
+.method_img {
+	width: 20px;
+	height: 20px;
+}
+
+.pay_method {
+	width: 100%;
+	display: flex;
+	gap: 4px;
+	flex-direction: column;
+}
+
+.pay_method select {
+	font-size: 14px;
+	font-weight: 600;
+	border: none;
+	outline: none;
+}
+
+.total_price {
+	font-size: 14px;
+	font-weight: 600;
+	color: var(--color-01);
+}
+
+.order_btn {
+	border: none;
+	border-radius: 16px;
+	padding: 16px;
+	font-size: 16px;
+	font-weight: 600;
+	color: #fff;
+	background: var(--color-01);
+}

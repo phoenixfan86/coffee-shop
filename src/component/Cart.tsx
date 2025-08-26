@@ -101,7 +101,7 @@ const Cart = ({ onClose }: CartProps) => {
           <div className={styles.price_preview}>
             <div className={styles.price_sum}>
               <span>Price</span>
-              <span className={styles.price}>$ ${(
+              <span className={styles.price}>$ {(
                 cart.reduce((sum, item) => sum + item.coffeePrice * item.quantity, 0)).toFixed(2)}</span>
             </div>
             <div className={styles.price_sum}>
@@ -114,15 +114,28 @@ const Cart = ({ onClose }: CartProps) => {
           </div>
         </div>
         <div className={styles.final_order}>
-          <div className={styles.pay_method}>
-            <label htmlFor="">Cash/Wallet</label>
-            <span className={styles.price}>
-              ${(
-                cart.reduce((sum, item) => sum + item.coffeePrice * item.quantity, 0) +
-                deliveryFee
-              ).toFixed(2)}
-            </span>
+          <div className={styles.method_wrapper}>
+            <div className={styles.method_img}>
+              <img src="./img/icons/wallet.png" alt="pay method" />
+            </div>
+            <div className={styles.pay_method}>
+              <select name="pay_method" id="">
+                <option value="cash">
+                  Cash/Wallet
+                </option>
+                <option value="card">
+                  Card
+                </option>
+              </select>
+              <span className={styles.total_price}>
+                ${(
+                  cart.reduce((sum, item) => sum + item.coffeePrice * item.quantity, 0) +
+                  deliveryFee
+                ).toFixed(2)}
+              </span>
+            </div>
           </div>
+          <button className={styles.order_btn}>Order</button>
         </div>
       </div>
     </div >
