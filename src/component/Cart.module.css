@@ -68,3 +68,103 @@
 	border-color: var(--color-01);
 	background: var(--color-05);
 }
+
+.order_item_wrapper {
+	height: 100%;
+	display: flex;
+	gap: 16px;
+	flex-direction: column;
+	align-items: start;
+	justify-content: space-between;
+	margin-top: 16px;
+}
+
+.order_item {
+	width: 100%;
+	display: flex;
+	gap: 16px;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.order_img {
+	width: 64px;
+	height: 64px;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.order_img img {
+	width: 100%;
+}
+
+.order_detiles {
+	width: 75%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.item_title h3 {
+	font-weight: 600;
+}
+
+.item_title p {
+	font-size: 12px;
+	color: var(--color-06);
+}
+
+.quantity {
+	display: flex;
+	gap: 18px;
+	align-items: center;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.quantity button {
+	width: 24px;
+	height: 24px;
+	font-size: 18px;
+	border: none;
+	border-radius: 8px;
+	color: var(--color-06);
+}
+
+.quantity button:focus {
+	color: var(--color-03);
+}
+
+.pay_summary {
+	width: 100%;
+	display: flex;
+	gap: 12px;
+	flex-direction: column;
+}
+
+.pay_summary h4 {
+	font-weight: 600;
+	color: var(--color-03);
+}
+
+.price_preview {
+	display: flex;
+	gap: 5px;
+	flex-direction: column;
+}
+
+.price_sum {
+	display: flex;
+	justify-content: space-between;
+	font-size: 14px;
+}
+
+.price {
+	font-weight: 600;
+	margin-left: 8px;
+}
+
+.delivery_fee {
+	color: var(--color-06);
+	text-decoration: line-through;
+}

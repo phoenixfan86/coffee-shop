@@ -11,7 +11,7 @@ type CartProps = {
 };
 
 const Cart = ({ onClose }: CartProps) => {
-  const { cart } = useCart();
+  const { cart, updateQuantity } = useCart();
   const [selectedDelivery, setSelectedDelivery] = useState<"deliver" | "pickup" | null>(null);
   const [deliveryData, setDeliveryData] = useState({
     deliveryAddress: "",
@@ -21,6 +21,8 @@ const Cart = ({ onClose }: CartProps) => {
     deliveryAddress: "",
     deliveryNote: "",
   })
+  const delivery = 2;
+  const deliveryFee = 1;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -73,13 +75,43 @@ const Cart = ({ onClose }: CartProps) => {
           }
           <div className="line"></div>
         </div>
-        <h2>Your Cart</h2>
         {cart.map((item) => (
-          <div key={item.id + item.size}>
-            <p>{item.name} ({item.size})</p>
-            <p>{item.finalPrice.toFixed(2)} $ × {item.quantity}</p>
+          <div key={item.id + item.size} className={styles.order_item_wrapper}>
+            <div className={styles.order_item}>
+              <div className={styles.order_img}>
+                <img src={item.image} alt={item.name} />
+              </div>
+              <div className={styles.order_detiles}>
+                <div className={styles.item_title}>
+                  <h3>{item.name}</h3>
+                  <p><span>Size:</span>{item.size}</p>
+                </div>
+                <div className={styles.quantity}>
+                  <button onClick={() => updateQuantity(item.id, item.size, item.quantity - 1)}>-</button>
+                  <span>{item.quantity}</span>
+                  <button onClick={() => updateQuantity(item.id, item.size, item.quantity + 1)}>+</button>
+                </div>
+              </div>
+            </div>
+            <div className={styles.pay_summary}>
+              <h4>Payment Summary</h4>
+              <div className={styles.price_preview}>
+                <div className={styles.price_sum}>
+                  <span>Price</span>
+                  <span className={styles.price}>$ {item.finalPrice.toFixed(2)}</span>
+                </div>
+                <div className={styles.price_sum}>
+                  <span>Delivery Fee</span>
+                  <div className="">
+                    <span className={styles.delivery_fee}>$ {delivery.toFixed(1)}</span>
+                    <span className={styles.price}>$ {delivery - deliveryFee}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         ))}
+        <div className={styles.final_order}></div>
       </div>
     </div >
   );
