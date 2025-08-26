@@ -62,6 +62,9 @@ const Cart = ({ onClose }: CartProps) => {
                 placeholder="Enter Address"
                 value={tmpDeliveryData.deliveryAddress}
                 onChange={handleChange}
+                minLength={5}
+                required
+                aria-label="Enter Delivery address"
               />
               <span>Add Note</span>
               <textarea
@@ -73,6 +76,16 @@ const Cart = ({ onClose }: CartProps) => {
               <button className={`${styles.btn} ${styles.active}`} onClick={handleSubmit}>Submit</button>
             </div>
           }
+          {deliveryData.deliveryAddress.trim() !== "" && (
+            <div className={styles.delivery_address}>
+              <h4>Delivery Address</h4>
+              <div className={styles.delivery_data}>
+                <span className={styles.delivery_title}>{deliveryData.deliveryAddress}</span>
+                <span className={styles.delivery_note}>{deliveryData.deliveryNote}</span>
+                <button className={styles.edit_btn} onClick={() => setSelectedDelivery("deliver")}>Edit Address</button>
+              </div>
+            </div>
+          )}
           <div className="line"></div>
         </div>
         {cart.map((item) => (

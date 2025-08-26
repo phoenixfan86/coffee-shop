@@ -69,6 +69,35 @@
 	background: var(--color-05);
 }
 
+.delivery_address h4 {
+	font-weight: 600;
+}
+
+.delivery_data {
+	display: flex;
+	gap: 4px;
+	flex-direction: column;
+	margin-top: 16px;
+}
+
+.delivery_title {
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.delivery_note {
+	font-size: 12px;
+	color: var(--color-06);
+}
+
+.edit_btn {
+	width: 40%;
+	padding: 6px 12px;
+	border-radius: 16px;
+	border: 1px solid var(--color-06);
+	color: var(--color-03);
+}
+
 .order_item_wrapper {
 	height: 100%;
 	display: flex;
