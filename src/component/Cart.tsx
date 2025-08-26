@@ -93,25 +93,37 @@ const Cart = ({ onClose }: CartProps) => {
                 </div>
               </div>
             </div>
-            <div className={styles.pay_summary}>
-              <h4>Payment Summary</h4>
-              <div className={styles.price_preview}>
-                <div className={styles.price_sum}>
-                  <span>Price</span>
-                  <span className={styles.price}>$ {item.finalPrice.toFixed(2)}</span>
-                </div>
-                <div className={styles.price_sum}>
-                  <span>Delivery Fee</span>
-                  <div className="">
-                    <span className={styles.delivery_fee}>$ {delivery.toFixed(1)}</span>
-                    <span className={styles.price}>$ {delivery - deliveryFee}</span>
-                  </div>
-                </div>
+
+          </div>
+        ))}
+        <div className={styles.pay_summary}>
+          <h4>Payment Summary</h4>
+          <div className={styles.price_preview}>
+            <div className={styles.price_sum}>
+              <span>Price</span>
+              <span className={styles.price}>$ ${(
+                cart.reduce((sum, item) => sum + item.coffeePrice * item.quantity, 0)).toFixed(2)}</span>
+            </div>
+            <div className={styles.price_sum}>
+              <span>Delivery Fee</span>
+              <div className="">
+                <span className={styles.delivery_fee}>$ {delivery.toFixed(1)}</span>
+                <span className={styles.price}>$ {delivery - deliveryFee}</span>
               </div>
             </div>
           </div>
-        ))}
-        <div className={styles.final_order}></div>
+        </div>
+        <div className={styles.final_order}>
+          <div className={styles.pay_method}>
+            <label htmlFor="">Cash/Wallet</label>
+            <span className={styles.price}>
+              ${(
+                cart.reduce((sum, item) => sum + item.coffeePrice * item.quantity, 0) +
+                deliveryFee
+              ).toFixed(2)}
+            </span>
+          </div>
+        </div>
       </div>
     </div >
   );

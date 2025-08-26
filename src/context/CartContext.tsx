@@ -12,7 +12,7 @@ type Coffee = {
 type CartItem = Coffee & {
   quantity: number;
   size: "S" | "M" | "L";
-  finalPrice: number;
+  coffeePrice: number;
 };
 
 type CartContextType = {
@@ -20,7 +20,7 @@ type CartContextType = {
   addToCart: (
     coffee: Coffee,
     size: "S" | "M" | "L",
-    finalPrice: number,
+    coffeePrice: number,
     quantity?: number
   ) => void;
   updateQuantity: (
@@ -48,7 +48,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const addToCart = (
     coffee: Coffee,
     size: "S" | "M" | "L",
-    finalPrice: number,
+    coffeePrice: number,
     quantity: number = 1
   ) => {
     setCart((prev) => {
@@ -60,7 +60,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
             : item
         );
       } else {
-        return [...prev, { ...coffee, size, finalPrice, quantity }];
+        return [...prev, { ...coffee, size, coffeePrice, quantity }];
       }
     });
   };
