@@ -41,7 +41,7 @@ export default function BuyModal({ coffee, onClose, onBuySuccess }: BuyModalProp
       <div className="detail_modal">
         <div className="modal_header">
           <div onClick={onClose}>
-            <Arrow_leftIcon />
+            <Arrow_leftIcon className="icon" />
           </div>
           <h4 aria-label='Detail'>Detail</h4>
           <div>
